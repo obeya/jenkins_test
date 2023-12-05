@@ -9,7 +9,7 @@ RUN mvn clean package -Dmaven.test.skip=true
 # 拉取运行环境，这个镜像打包出的镜像比较小，如需要可换成oracle的jre
 FROM fabric8/java-alpine-openjdk8-jre
 # 从编译好的镜像中将jar拷贝到运行时容器
-COPY --from=builder /project/target/your-jar-name.jar /
+COPY --from=builder /project/target/ruoyi-activiti.jar /
 # 容器启动时执行的命令，这里可加jvm参数
 ENTRYPOINT ["java","-jar","/ruoyi-activiti.jar"]
 # 开放端口
